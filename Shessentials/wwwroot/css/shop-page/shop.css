@@ -734,6 +734,349 @@
 }
 
 
+/* Quick View Modal Styles */
+.quick-view-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.quick-view-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quick-view-modal {
+    background: white;
+    border-radius: 20px;
+    max-width: 900px;
+    max-height: 90vh;
+    width: 95%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.quick-view-overlay.active .quick-view-modal {
+    transform: scale(1);
+}
+
+.quick-view-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #A36A66;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.2s;
+    z-index: 10;
+}
+
+.quick-view-close:hover {
+    background: #FFA593;
+    transform: scale(1.1);
+}
+
+.quick-view-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-height: 80vh;
+}
+
+.quick-view-image {
+    background: #fbeee6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.quick-view-image img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.quick-view-details {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffecec 100%);
+}
+
+.quick-view-header {
+    margin-bottom: 1.5rem;
+}
+
+.quick-view-badge {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.quick-view-badge.new {
+    background: #e91e63;
+}
+
+.quick-view-title {
+    color: #A36A66;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.quick-view-category {
+    color: #b48a78;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.quick-view-description {
+    color: #6d4c41;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.quick-view-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.quick-view-stars {
+    color: #ffc107;
+    font-size: 1.1rem;
+}
+
+.quick-view-rating-count {
+    color: #b48a78;
+    font-size: 0.9rem;
+}
+
+.quick-view-price {
+    margin-bottom: 2rem;
+}
+
+.quick-view-current-price {
+    color: #A36A66;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.quick-view-old-price {
+    color: #b48a78;
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.quick-view-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quick-view-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.quick-view-quantity label {
+    color: #6d4c41;
+    font-weight: 600;
+}
+
+.quick-view-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quick-view-quantity-btn {
+    background: #A36A66;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.quick-view-quantity-btn:hover {
+    background: #FFA593;
+}
+
+.quick-view-quantity-display {
+    font-weight: 600;
+    color: #A36A66;
+    min-width: 30px;
+    text-align: center;
+}
+
+.quick-view-add-cart {
+    background: #A36A66;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex: 1;
+}
+
+.quick-view-add-cart:hover {
+    background: #FFA593;
+}
+
+.quick-view-buy-now {
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex: 1;
+}
+
+.quick-view-buy-now:hover {
+    background: #ff4081;
+}
+
+.quick-view-features {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1.5rem;
+}
+
+.quick-view-features h4 {
+    color: #A36A66;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.quick-view-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-view-features li {
+    color: #6d4c41;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quick-view-features li:before {
+    content: "✓";
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quick-view-content {
+        grid-template-columns: 1fr;
+        max-height: 95vh;
+    }
+    
+    .quick-view-modal {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .quick-view-image {
+        padding: 1.5rem;
+    }
+    
+    .quick-view-image img {
+        max-height: 250px;
+    }
+    
+    .quick-view-details {
+        padding: 1.5rem;
+    }
+    
+    .quick-view-title {
+        font-size: 1.5rem;
+    }
+    
+    .quick-view-actions {
+        flex-direction: column;
+    }
+    
+    .quick-view-add-cart,
+    .quick-view-buy-now {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-view-modal {
+        width: 98%;
+        max-height: 98vh;
+    }
+    
+    .quick-view-image {
+        padding: 1rem;
+    }
+    
+    .quick-view-details {
+        padding: 1rem;
+    }
+    
+    .quick-view-title {
+        font-size: 1.3rem;
+    }
+    
+    .quick-view-current-price {
+        font-size: 1.5rem;
+    }
+}
 
 
 

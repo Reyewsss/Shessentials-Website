@@ -112,3 +112,6 @@ C:\Shessentials Website\Shessentials\obj\Debug\net9.0\compressed\hvpksk9aes-8546
 C:\Shessentials Website\Shessentials\obj\Debug\net9.0\compressed\wd7pvubncr-gxf1o0k3if.gz
 C:\Shessentials Website\Shessentials\obj\Debug\net9.0\compressed\pwo5vja0z8-8bw0efglmz.gz
 C:\Shessentials Website\Shessentials\obj\Debug\net9.0\compressed\t459r5up4r-dnk2e1lj68.gz
+C:\Shessentials Website\Shessentials\obj\Debug\net9.0\Shessentials.sourcelink.json
+C:\Shessentials Website\Shessentials\obj\Debug\net9.0\compressed\fafs3gv64n-5ioziirme0.gz
+C:\Shessentials Website\Shessentials\obj\Debug\net9.0\compressed\10sx6ac113-io4f9765hv.gz

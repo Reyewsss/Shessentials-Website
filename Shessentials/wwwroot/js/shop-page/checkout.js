@@ -1,10 +1,8 @@
-// Checkout cart functionality with enhanced promo support
 document.addEventListener('DOMContentLoaded', function() {
     loadCheckoutCart();
     setupEventListeners();
 });
 
-// Promo code database
 const promoDatabase = {
     'WELCOME25': {
         code: 'WELCOME25',
@@ -50,28 +48,20 @@ const promoDatabase = {
         applicableProducts: ['cream concealer', 'concealer'],
         minPurchase: 0,
         maxDiscount: 300
-    },
-    'WELCOMES': {
-        code: 'WELCOMES',
-        description: '15% Off Entire Order',
-        discountType: 'percentage',
-        discountValue: 0.15,
-        applicableProducts: ['all'],
-        minPurchase: 0,
-        maxDiscount: 500
     }
 };
 
 function loadCheckoutCart() {
     try {
-        // Load cart from localStorage
         const savedCart = localStorage.getItem('shessentialsCart');
         const cart = savedCart ? JSON.parse(savedCart) : { items: [], total: 0 };
+        
+        const currentPromo = localStorage.getItem('shessentialsCurrentPromo') || 
+                            localStorage.getItem('shessentialsCheckoutPromo');
         
         const cartItemsContainer = document.getElementById('checkoutCartItems');
         const emptyCartMessage = document.getElementById('emptyCartMessage');
         
-        // Clear existing dynamic content
         const existingItems = cartItemsContainer.querySelectorAll('.shess-checkout-cart-item');
         existingItems.forEach(item => {
             if (!item.classList.contains('static-item')) {
@@ -89,7 +79,6 @@ function loadCheckoutCart() {
         emptyCartMessage.style.display = 'none';
         enableCheckout();
         
-        // Add each cart item to checkout display
         cart.items.forEach(item => {
             const cartItemHTML = `
                 <div class="shess-checkout-cart-item" data-product-id="${item.id}" data-product-name="${item.name.toLowerCase()}">
@@ -118,33 +107,45 @@ function loadCheckoutCart() {
             cartItemsContainer.insertAdjacentHTML('afterbegin', cartItemHTML);
         });
         
-        updateCheckoutTotals(cart);
+        if (currentPromo) {
+            applyClaimedPromo(currentPromo, cart);
+        } else {
+            updateCheckoutTotals(cart);
+        }
         
     } catch (error) {
-        console.error('Error loading checkout cart:', error);
         showError('Error loading cart items. Please try refreshing the page.');
     }
 }
 
+function applyClaimedPromo(promoCode, cart) {
+    const promoDatabase = JSON.parse(localStorage.getItem('shessentialsPromoDatabase') || '{}');
+    const promo = promoDatabase[promoCode];
+    
+    if (!promo) return;
+    
+    const promoCodeInput = document.getElementById('promoCodeInput');
+    if (promoCodeInput) {
+        promoCodeInput.value = promoCode;
+    }
+    
+    applyPromoCode();
+}
+
 function updateCheckoutTotals(cart, discountAmount = 0) {
     try {
-        // Calculate subtotal
         let subtotal = 0;
         cart.items.forEach(item => {
             subtotal += item.price * item.quantity;
         });
         
-        // Calculate tax (assuming 0% tax rate for Philippines)
         const taxRate = 0;
         const taxAmount = subtotal * taxRate;
         
-        // Calculate shipping (free over ₱500, otherwise ₱50)
         const shippingCost = subtotal > 500 ? 0 : 50;
         
-        // Calculate grand total with discount
         const grandTotal = Math.max(0, subtotal + taxAmount + shippingCost - discountAmount);
         
-        // Update DOM elements
         document.getElementById('subtotal').textContent = `₱${subtotal.toFixed(2)}`;
         document.getElementById('taxAmount').textContent = `₱${taxAmount.toFixed(2)}`;
         document.getElementById('shippingCost').textContent = shippingCost === 0 ? 'Free' : `₱${shippingCost.toFixed(2)}`;
@@ -162,7 +163,6 @@ function applyPromoCode() {
     const discountLine = document.getElementById('discountLine');
     const discountAmountElement = document.getElementById('discountAmount');
     
-    // Clear previous promo
     removePromoCode();
     
     if (!promoCode) {
@@ -172,13 +172,11 @@ function applyPromoCode() {
     
     const promo = promoDatabase[promoCode];
     
-    // Check if promo exists
     if (!promo) {
         showError(`Invalid promo code "${promoCode}".`);
         return;
     }
     
-    // Load current cart
     const savedCart = localStorage.getItem('shessentialsCart');
     const cart = savedCart ? JSON.parse(savedCart) : { items: [], total: 0 };
     
@@ -187,22 +185,18 @@ function applyPromoCode() {
         return;
     }
     
-    // Check minimum purchase requirement
     const subtotal = cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
     if (promo.minPurchase > 0 && subtotal < promo.minPurchase) {
         showError(`Promo code requires minimum purchase of ₱${promo.minPurchase}.`);
         return;
     }
     
-    // Calculate discount based on promo type and applicable products
     let discountAmount = 0;
     let applicableItems = [];
     
     if (promo.applicableProducts.includes('all')) {
-        // Apply to all items
         applicableItems = cart.items;
     } else {
-        // Apply to specific products based on name matching
         applicableItems = cart.items.filter(item => {
             const itemName = item.name.toLowerCase();
             return promo.applicableProducts.some(keyword => 
@@ -216,15 +210,12 @@ function applyPromoCode() {
         return;
     }
     
-    // Calculate discount
     if (promo.discountType === 'percentage') {
-        // Calculate total for applicable items
         const applicableTotal = applicableItems.reduce((total, item) => 
             total + (item.price * item.quantity), 0
         );
         discountAmount = applicableTotal * promo.discountValue;
         
-        // Apply max discount limit
         if (promo.maxDiscount && discountAmount > promo.maxDiscount) {
             discountAmount = promo.maxDiscount;
         }
@@ -234,10 +225,8 @@ function applyPromoCode() {
         );
     }
     
-    // Apply discount to individual items for display
     applyDiscountToItems(applicableItems, promo, discountAmount);
     
-    // Update displayed discount
     const promoCodeElement = document.querySelector('.shess-checkout-promo-code');
     const promoDiscountElement = document.querySelector('.shess-checkout-promo-discount');
     
@@ -251,11 +240,9 @@ function applyPromoCode() {
         discountAmountElement.textContent = `-₱${discountAmount.toFixed(2)}`;
     }
     
-    // Show discount line
     if (discountLine) discountLine.style.display = 'flex';
     if (appliedPromo) appliedPromo.style.display = 'flex';
     
-    // Update totals with discount
     updateCheckoutTotals(cart, discountAmount);
     
     showSuccess(`Promo code "${promoCode}" applied successfully! Saved ₱${discountAmount.toFixed(2)}`);
@@ -271,7 +258,6 @@ function applyDiscountToItems(applicableItems, promo, totalDiscount) {
             if (promo.discountType === 'percentage') {
                 itemDiscount = originalPrice * promo.discountValue;
             } else {
-                // Distribute fixed discount proportionally
                 const applicableTotal = applicableItems.reduce((total, i) => 
                     total + (i.price * i.quantity), 0
                 );
@@ -281,7 +267,6 @@ function applyDiscountToItems(applicableItems, promo, totalDiscount) {
             
             const discountedPrice = originalPrice - itemDiscount;
             
-            // Update display
             const priceElement = itemElement.querySelector('.shess-checkout-item-price');
             if (priceElement) {
                 priceElement.innerHTML = `
@@ -290,7 +275,6 @@ function applyDiscountToItems(applicableItems, promo, totalDiscount) {
                 `;
             }
             
-            // Show promo applied indicator
             const promoIndicator = itemElement.querySelector(`#promo-applied-${item.id}`);
             if (promoIndicator) promoIndicator.style.display = 'block';
         }
@@ -304,11 +288,9 @@ function removePromoCode() {
     if (appliedPromo) appliedPromo.style.display = 'none';
     if (discountLine) discountLine.style.display = 'none';
     
-    // Reload cart without discounts
     const savedCart = localStorage.getItem('shessentialsCart');
     const cart = savedCart ? JSON.parse(savedCart) : { items: [], total: 0 };
     
-    // Reset item prices
     document.querySelectorAll('.shess-checkout-cart-item').forEach(item => {
         const priceElement = item.querySelector('.shess-checkout-item-price');
         const itemId = item.getAttribute('data-product-id');
@@ -318,7 +300,6 @@ function removePromoCode() {
             const originalPrice = cartItem.price * cartItem.quantity;
             priceElement.innerHTML = `<span class="discounted-price">₱${originalPrice.toFixed(2)}</span>`;
             
-            // Hide promo indicator
             const promoIndicator = item.querySelector(`#promo-applied-${itemId}`);
             if (promoIndicator) promoIndicator.style.display = 'none';
         }
@@ -328,7 +309,6 @@ function removePromoCode() {
 }
 
 function setupEventListeners() {
-    // Form validation
     document.querySelectorAll('.shess-form-control').forEach(input => {
         input.addEventListener('blur', function() {
             validateField(this);
@@ -341,7 +321,6 @@ function setupEventListeners() {
         });
     });
     
-    // Promo code input
     const promoInput = document.getElementById('promoCodeInput');
     if (promoInput) {
         promoInput.addEventListener('keypress', function(e) {
@@ -351,7 +330,6 @@ function setupEventListeners() {
             }
         });
         
-        // Auto-uppercase promo codes
         promoInput.addEventListener('input', function() {
             this.value = this.value.toUpperCase();
         });
@@ -364,7 +342,6 @@ function validateField(field) {
         return false;
     }
     
-    // Email validation
     if (field.type === 'email' && field.value.trim() !== '') {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(field.value)) {
@@ -401,16 +378,13 @@ function showError(message) {
     errorDiv.style.cssText = 'background: #fee; color: #c33; padding: 10px; margin: 10px 0; border-radius: 4px; border: 1px solid #fcc;';
     errorDiv.innerHTML = `<i class="bi bi-exclamation-triangle"></i> ${message}`;
     
-    // Remove existing error messages
     document.querySelectorAll('.shess-error-message').forEach(msg => msg.remove());
     
-    // Insert before promo section
     const promoSection = document.querySelector('.shess-checkout-promo-section');
     if (promoSection) {
         promoSection.parentNode.insertBefore(errorDiv, promoSection);
     }
     
-    // Auto-remove after 5 seconds
     setTimeout(() => errorDiv.remove(), 5000);
 }
 
@@ -420,16 +394,13 @@ function showSuccess(message) {
     successDiv.style.cssText = 'background: #efe; color: #363; padding: 10px; margin: 10px 0; border-radius: 4px; border: 1px solid #cfc;';
     successDiv.innerHTML = `<i class="bi bi-check-circle"></i> ${message}`;
     
-    // Remove existing success messages
     document.querySelectorAll('.shess-success-message').forEach(msg => msg.remove());
     
-    // Insert before promo section
     const promoSection = document.querySelector('.shess-checkout-promo-section');
     if (promoSection) {
         promoSection.parentNode.insertBefore(successDiv, promoSection);
     }
     
-    // Auto-remove after 5 seconds
     setTimeout(() => successDiv.remove(), 5000);
 }
 
@@ -442,7 +413,6 @@ function placeOrder() {
         return;
     }
     
-    // Validate required fields
     const requiredFields = document.querySelectorAll('.shess-form-control[required]');
     let isValid = true;
     
@@ -458,12 +428,9 @@ function placeOrder() {
         return;
     }
     
-    // For demo purposes - show success message and clear cart
     alert('Order placed successfully! Thank you for your purchase.');
     
-    // Clear cart after successful order
     localStorage.removeItem('shessentialsCart');
     
-    // Redirect to home page
     window.location.href = '/';
 }

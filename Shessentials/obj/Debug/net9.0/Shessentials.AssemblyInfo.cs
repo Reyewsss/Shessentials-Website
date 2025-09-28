@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Shessentials")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f89b25366b0e50abce605ab6b03822f737fcc4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Shessentials")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Shessentials")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -93,7 +93,7 @@
                                 <img src="/images/products-mockup/serum-design-1.png" alt="Serum">
                                 </picture>
                                 <div class="shop-product-overlay">
-                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-quick-view" onclick="openQuickView('5', 'Hydrating Face Serum', 599.00, '/images/products-mockup/serum-design-1.png', 'skincare', 'Advanced anti-aging formula with vitamin C and peptides', 5, 127, true, false)">Quick View</button>
                                     <button class="shop-btn-add-cart" onclick="addToCart('5', 'Hydrating Face Serum', 599.00, '/images/products-mockup/serum-design-1.png')">Add to Cart</button>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                 <img src="/images/products-mockup/body-scrub-design-1.png" alt="Body Scrub">
                                 </picture>
                                 <div class="shop-product-overlay">
-                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-quick-view" onclick="openQuickView('3', 'Exfoliating Body Scrub', 549.00, '/images/products-mockup/body-scrub-design-1.png', 'skincare', '24-hour hydration with hyaluronic acid and botanicals', 5, 89, true, false)">Quick View</button>
                                     <button class="shop-btn-add-cart" onclick="addToCart('3', 'Exfoliating Body Scrub', 549.00, '/images/products-mockup/body-scrub-design-1.png')">Add to Cart</button>
                                 </div>
                             </div>
@@ -155,7 +155,7 @@
                                 <img src="/images/products-mockup/concealer-design-1.png" alt="Concealer">
                                 </picture>
                                 <div class="shop-product-overlay">
-                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-quick-view" onclick="openQuickView('1', 'Cream Concealer', 399.00, '/images/products-mockup/concealer-design-1.png', 'makeup', 'Lightweight coverage with SPF 30 protection', 4.5, 156, true, false)">Quick View</button>
                                     <button class="shop-btn-add-cart" onclick="addToCart('1', 'Cream Concealer', 399.00, '/images/products-mockup/concealer-design-1.png')">Add to Cart</button>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                                 <img src="/images/products-mockup/liquid-foundation-design-1.png" alt="Liquid Foundation">
                                 </picture>
                                 <div class="shop-product-overlay">
-                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-quick-view" onclick="openQuickView('2', 'Liquid Foundation', 699.00, '/images/products-mockup/liquid-foundation-design-1.png', 'makeup', 'Advanced sun protection with anti-aging benefits', 4.5, 73, true, false)">Quick View</button>
                                     <button class="shop-btn-add-cart" onclick="addToCart('2', 'Liquid Foundation', 699.00, '/images/products-mockup/liquid-foundation-design-1.png')">Add to Cart</button>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@
                                 <img src="/images/products-mockup/matte-lipstick-design-1.png" alt="Matte Lipstick">
                                 </picture>
                                 <div class="shop-product-overlay">
-                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-quick-view" onclick="openQuickView('4', 'Matte Lipstick', 349.00, '/images/products-mockup/matte-lipstick-design-1.png', 'makeup', 'Rich, long-lasting color with a matte finish', 4.8, 45, true, false)">Quick View</button>
                                     <button class="shop-btn-add-cart" onclick="addToCart('4', 'Matte Lipstick', 349.00, '/images/products-mockup/matte-lipstick-design-1.png')">Add to Cart</button>
                                 </div>
                             </div>
@@ -249,7 +249,7 @@
                                 <img src="/images/products-mockup/toner-design-1.png" alt="Toner">
                                 </picture>
                                 <div class="shop-product-overlay">
-                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-quick-view" onclick="openQuickView('6', 'Brightening Facial Toner', 499.00, '/images/products-mockup/toner-design-1.png', 'skincare', 'Brightening and hydrating toner with vitamin C', 4.7, 89, true, false)">Quick View</button>
                                     <button class="shop-btn-add-cart" onclick="addToCart('6', 'Brightening Facial Toner', 499.00, '/images/products-mockup/toner-design-1.png')">Add to Cart</button>
                                 </div>
                             </div>
@@ -292,3 +292,46 @@
         </div>
     </div>
 </section>
+
+<!-- Quick View Modal Structure (add this before closing body tag) -->
+<div class="quick-view-overlay" id="quickViewOverlay" onclick="closeQuickView()">
+    <div class="quick-view-modal" onclick="event.stopPropagation()">
+        <button class="quick-view-close" onclick="closeQuickView()">×</button>
+        <div class="quick-view-content">
+            <div class="quick-view-image">
+                <img id="quickViewImage" src="" alt="Product Image">
+            </div>
+            <div class="quick-view-details">
+                <div class="quick-view-header">
+                    <div class="quick-view-badge" id="quickViewBadge"></div>
+                    <h2 class="quick-view-title" id="quickViewTitle">Product Title</h2>
+                    <div class="quick-view-category" id="quickViewCategory">Category</div>
+                    <p class="quick-view-description" id="quickViewDescription">Product description goes here.</p>
+                    <div class="quick-view-rating">
+                        <div class="quick-view-stars" id="quickViewStars"></div>
+                        <span class="quick-view-rating-count" id="quickViewRatingCount">(0 reviews)</span>
+                    </div>
+                </div>
+                
+                <div class="quick-view-price">
+                    <span class="quick-view-current-price" id="quickViewPrice">₱0.00</span>
+                </div>
+                
+                <div class="quick-view-quantity">
+                    <label>Quantity:</label>
+                    <div class="quick-view-quantity-controls">
+                        <button class="quick-view-quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <span class="quick-view-quantity-display" id="quickViewQuantity">1</span>
+                        <button class="quick-view-quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                </div>
+                
+                <div class="quick-view-actions">
+                    <button class="quick-view-add-cart" onclick="addToCartFromQuickView()">Add to Cart</button>
+                    <button class="quick-view-buy-now" onclick="buyNowFromQuickView()">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/shop-page/shop-page.js" asp-append-version="true"></script>
