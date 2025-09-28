@@ -1,0 +1,211 @@
+/* ============================================
+           PROMOTIONAL SECTION STYLES
+           ============================================ */
+        
+        /* Promotional Section */
+        .promotional-section {
+            padding: 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Container */
+        .promotional-section .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Carousel Container */
+        .promo-carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+        }
+        
+        /* Carousel */
+        .promo-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            touch-action: pan-y;
+        }
+        
+        /* Promotional Slides */
+        .promo-slide {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        
+        .promo-slide.active {
+            position: relative;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Promotional Banner Container */
+        .promo-banner-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Banner Image */
+        .promo-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Video Container */
+        .promo-video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
+        
+        .promo-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Video Play Button */
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(163, 106, 102, 0.8);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .video-play-button:hover {
+            background: rgba(163, 106, 102, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-play-button::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+        
+        /* Overlay for interactivity */
+        .promo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            transition: background 0.3s ease;
+            z-index: 2;
+        }
+        
+        .promo-overlay:hover {
+            background: rgba(163, 106, 102, 0.05);
+        }
+        
+        /* Invisible link covering the entire banner */
+        .promo-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-decoration: none;
+            z-index: 3;
+        }
+        
+        /* Carousel Indicators */
+        .promo-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: #A36A66;
+            transform: scale(1.2);
+        }
+        
+        .indicator:hover {
+            background: rgba(163, 106, 102, 0.8);
+            transform: scale(1.1);
+        }
+        
+        /* Navigation Arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .carousel-prev {
+            left: 15px;
+        }
+        
+        .carousel-next {
+            right: 15px;
+        }
+        
+        

@@ -1,0 +1,542 @@
+/* ============================================
+   ABOUT SECTION STYLES
+   ============================================ */
+
+/* About Section */
+.about-section {
+  padding: 6rem 0;
+  background-image: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%),
+    url(../../images/section-banner/store-banner.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background pattern */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cpath d='M0,300 Q200,100 400,300 T800,300 Q1000,200 1200,300' stroke='rgba(163,106,102,0.1)' stroke-width='2' fill='none'/%3E%3Cpath d='M0,350 Q300,150 600,350 T1200,350' stroke='rgba(255,165,147,0.08)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Container */
+.about-section .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* About Content Layout */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+/* About Text Section */
+.about-text {
+  color: white;
+  text-align: left;
+}
+
+.about-label {
+  display: inline-block;
+  background: #A36A66;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.about-label:hover {
+  background: #FFA593;
+  transform: translateY(-2px);
+}
+
+.about-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.about-title .highlight {
+  color: #FFA593;
+  position: relative;
+}
+
+.about-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #A36A66, #FFA593);
+  border-radius: 2px;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.about-mission {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  font-style: italic;
+  padding: 1.5rem;
+  background: rgba(163, 106, 102, 0.15);
+  border-left: 4px solid #A36A66;
+  border-radius: 0 10px 10px 0;
+}
+
+/* About Stats */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(163, 106, 102, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(163, 106, 102, 0.15);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #A36A66;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #495057;
+}
+
+/* About CTA Button */
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #A36A66;
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 20px rgba(163, 106, 102, 0.3);
+}
+
+.about-cta:hover {
+  transform: translateY(-3px);
+  background: #FFA593;
+  box-shadow: 0 10px 30px rgba(163, 106, 102, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.about-cta .arrow {
+  margin-left: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.about-cta:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* About Visual Section */
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  background: linear-gradient(135deg, #A36A66, #FFA593);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(163, 106, 102, 0.3);
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Ccircle cx='100' cy='100' r='30' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='300' cy='200' r='40' fill='rgba(255,255,255,0.05)'/%3E%3Ccircle cx='200' cy='150' r='25' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.value-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(163, 106, 102, 0.1);
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(163, 106, 102, 0.15);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  color: #A36A66;
+  margin-bottom: 1rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.value-item:hover .value-icon {
+  color: #FFA593;
+  transform: scale(1.1);
+}
+
+.value-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #2c3e50;
+}
+
+.value-description {
+  font-size: 0.95rem;
+  color: #495057;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE STYLES - TEXT FIRST, THEN CARDS
+   ============================================ */
+
+/* Tablet Devices */
+@media (max-width: 1024px) {
+  .about-content {
+    gap: 3rem;
+  }
+  
+  .about-title {
+    font-size: 2.8rem;
+  }
+  
+  .about-description {
+    font-size: 1.1rem;
+  }
+  
+  .about-stats {
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 767.98px) {
+  .about-section {
+    padding: 4rem 0;
+    background-attachment: scroll;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  /* Text content comes FIRST (default order) */
+  .about-text {
+    text-align: center;
+    order: 1; /* Text comes first */
+  }
+  
+  /* Visual content comes SECOND */
+  .about-visual {
+    order: 2; /* Cards come after text */
+  }
+  
+  .about-label {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+  }
+  
+  .about-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  
+  .about-title .highlight::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  
+  .about-description {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+  }
+  
+  .about-mission {
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid #A36A66;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .stat-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .about-cta {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+  }
+  
+  .about-image {
+    max-width: 350px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-values {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .value-item {
+    padding: 1.5rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 575.98px) {
+  .about-section {
+    padding: 3rem 0;
+  }
+  
+  .about-content {
+    gap: 2.5rem;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+  }
+  
+  .about-mission {
+    font-size: 1rem;
+    padding: 1.2rem;
+  }
+  
+  .about-stats {
+    max-width: 350px;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+  }
+  
+  .about-cta {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .about-image {
+    max-width: 300px;
+    height: 200px;
+    font-size: 1rem;
+  }
+  
+  .about-values {
+    max-width: 350px;
+  }
+  
+  .value-item {
+    padding: 1.5rem;
+  }
+  
+  .value-icon {
+    font-size: 2rem;
+  }
+  
+  .value-title {
+    font-size: 1.1rem;
+  }
+  
+  .value-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 375px) {
+  .about-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-description {
+    font-size: 0.95rem;
+  }
+  
+  .about-stats {
+    max-width: 300px;
+  }
+  
+  .stat-item {
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .about-image {
+    max-width: 280px;
+    height: 180px;
+  }
+  
+  .about-values {
+    max-width: 300px;
+  }
+  
+  .value-item {
+    padding: 1rem;
+  }
+  
+  .value-icon {
+    font-size: 1.8rem;
+  }
+  
+  .value-title {
+    font-size: 1rem;
+  }
+  
+  .value-description {
+    font-size: 0.85rem;
+  }
+}

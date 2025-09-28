@@ -1,0 +1,36 @@
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/css/shop-page/cart-modal.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Overlay for when cart is open -->
+<div class="cart-overlay" onclick="closeCartModal()"></div>
+
+<!-- Cart Modal -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <div class="cart-modal-header">
+            <h2 class="cart-modal-title">Your Cart</h2>
+            <button class="cart-modal-close" onclick="closeCartModal()">&times;</button>
+        </div>
+        <div class="cart-modal-body">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-modal-footer">
+            <div class="cart-modal-discount">
+                <span class="cart-modal-discount-label">Shop Discount:</span>
+
+            </div>
+            <div class="cart-modal-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <button class="cart-modal-checkout" onclick="proceedToCheckout()">Proceed to Checkout</button>
+            <a class="cart-modal-shopping" href="@Url.Action("Index", "Shop")">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/shop-page/cart-modal.js" asp-append-version="true"></script>

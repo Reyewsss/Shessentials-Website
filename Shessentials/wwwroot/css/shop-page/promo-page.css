@@ -1,0 +1,300 @@
+.promo-list-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.promo-item-wide {
+    width: 100%;
+    max-width: 800px;
+}
+.promo-coupon-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+body {
+    background: #ffc2b1;
+}
+/* Promo Page Styles - Shop Theme */
+.promo-header {
+    padding: 2.5rem 0 1.5rem 0;
+    text-align: center;
+    margin-top: 40px;
+}
+.promo-title {
+    color: #A36A66;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.promo-subtitle {
+    color: #6d4c41;
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+
+.promo-list-section {
+    padding: 2rem 0;
+}
+.promo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.promo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(181,124,106,0.08);
+    overflow: hidden;
+    padding: 1.5rem 2rem;
+}
+.promo-item-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex: 2;
+    text-align: left;
+}
+.promo-product-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(181,124,106,0.10);
+    background: #fbeee6;
+}
+.promo-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.promo-store {
+    font-size: 0.95rem;
+    color: #A36A66;
+    font-weight: 600;
+}
+.promo-product-title {
+    font-size: 1.1rem;
+    color: #A36A66;
+    font-weight: 500;
+    margin: 0;
+}
+.promo-product-prices {
+    display: flex;
+    gap: 0.7rem;
+    align-items: baseline;
+}
+.promo-price {
+    color: #A36A66;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+.promo-old-price {
+    color: #b48a78;
+    font-size: 0.95rem;
+    text-decoration: line-through;
+}
+.promo-item-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 220px;
+    max-width: 220px;
+}
+.promo-coupon {
+    background: linear-gradient(135deg, #ffebee 60%, #ffe3e3 100%);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    box-shadow: 0 2px 8px rgba(181,124,106,0.08);
+    min-width: 220px;
+    max-width: 220px;
+    min-height: 180px;
+    max-height: 180px;
+    justify-content: center;
+}
+.promo-coupon-value {
+    color: #e91e63;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+.promo-coupon-condition {
+    color: #b57c6a;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+.promo-coupon-code {
+    color: #6d4c41;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+}
+.promo-claim-btn {
+    background: #A36A66;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.promo-claim-btn:hover {
+    background: #FFA593;
+}
+
+.promo-instructions {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.instructions-content {
+    text-align: center;
+}
+.steps-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.step-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    max-width: 250px;
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+.step-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.step-number {
+    background: #A36A66;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(247,178,196,0.2);
+}
+.step-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #A36A66;
+}
+.step-card p {
+    font-size: 1rem;
+    color: #444;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #A36A66;
+    margin-bottom: 1.5rem;
+}
+/* Promo Notification Styles */
+.cart-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    font-family: 'Poppins', sans-serif;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #4CAF50;
+}
+
+.cart-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.notification-icon {
+    color: #4CAF50;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.notification-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.notification-product {
+    font-size: 14px;
+    color: #666;
+}
+
+.notification-view-cart {
+    align-self: flex-end;
+    background-color: transparent;
+    color: #4CAF50;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.notification-view-cart:hover {
+    color: #3d8b40;
+    text-decoration: underline;
+}
+
+/* Ensure proper z-index stacking */
+.promo-list-section {
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 900px) {
+    .steps-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .step-card {
+        max-width: 350px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,141 @@
+/* ============================================
+   SHESSENTIALS - HOME PAGE STYLES
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+/* Hero Section */
+.hero-section {
+  background-image: url('/images/section-banner/hero-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: -80px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  margin-top: -20px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif; 
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 5px; 
+}
+
+.highlight-text {
+  color: #A36A66;
+  font-weight: 900;
+  font-style: italic; 
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f8f8f8;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.3px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-primary-custom {
+  background: #A36A66;
+  color: white;
+  border: none;
+  padding: 1.1rem 2.5rem; 
+  border-radius: 50px;
+  font-size: 1.3rem; 
+  font-weight: 700; 
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background: #FFA593;
+   color: white;
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES ONLY
+   ============================================ */
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .hero-content {
+    padding: 4rem;
+    margin-top: 20px; /* Lower the content */
+  }
+  
+  .hero-title {
+    font-size: 3.5rem; /* Increased from 40px */
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem; /* Increased from 1rem */
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center; /* Center the button */
+    gap: 0.8rem;
+  }
+  
+  .btn-primary-custom {
+    padding: 1.1rem 2.5rem; 
+    font-size: 1.3rem; 
+    width: 180px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 575.98px) {
+  .hero-title {
+    font-size: 3.5rem; /* Increased from 1.8rem */
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem; /* Increased from 0.9rem */
+  }
+  
+  .btn-primary-custom {
+    padding: 1.1rem 2.5rem; 
+    font-size: 1.1rem; 
+    width: 160px;
+  }
+}

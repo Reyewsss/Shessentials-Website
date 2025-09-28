@@ -1,0 +1,307 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<link rel="stylesheet" href="~/css/homepage/hero-section.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homepage/featured-section.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homepage/promotional-section.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homepage/newsletter-section.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homepage/top-seller-section.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homepage/about-section.css" asp-append-version="true" />
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                Discover Your <span class="highlight-text">Essential</span> Beauty
+            </h1>
+            <p class="hero-subtitle">
+                Curated luxury essentials that enhance your natural radiance. 
+                From skincare to lifestyle, we bring you the finest products for the modern woman.
+            </p>
+            <div class="hero-buttons">
+                <a href="@Url.Action("Index", "Shop")" class="btn btn-primary-custom">Shop Now</a>
+            </div>
+        </div>
+    </div>  
+</section>
+
+<!-- Featured Products Section -->
+<section id="featured" class="featured-section">
+    <div class="decorative-curve"></div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Essentials</h2>
+            <p class="section-subtitle">Handpicked products that define luxury and quality</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card stagger-item">
+                <div class="product-image">
+                    <picture>
+                        <img src="../images/products-mockup/concealer-design-1.png" alt="Concealer" class="product-img" loading="lazy">
+                    </picture>
+                </div>
+                <div class="product-info">
+                    <h3>Cream Concealer</h3>
+                    <p>Premium anti-aging formula for luminous skin</p>
+                    <div class="product-price">₱399.00</div>
+                    <button class="btn-product" 
+                           onclick="addToCart('1', 'Cream Concealer', 399.00, '../images/products-mockup/concealer-design-1.png')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card stagger-item">
+                <div class="product-image">
+                    <picture>
+                        <img src="../images/products-mockup/liquid-foundation-design-1.png" alt="Liquid Foundation" class="product-img" loading="lazy">
+                    </picture>
+                </div>
+                <div class="product-info">
+                    <h3>Liquid Foundation</h3>
+                    <p>24-hour hydration with natural botanicals</p>
+                    <div class="product-price">₱699.00</div>
+                    <button class="btn-product"
+                           onclick="addToCart('2', 'Liquid Foundation', 699.00, '../images/products-mockup/liquid-foundation-design-1.png')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card stagger-item">
+                <div class="product-image">
+                    <picture>
+                        <img src="../images/products-mockup/body-scrub-design-1.png" alt="Body Scrub" class="product-img" loading="lazy">
+                    </picture>
+                </div>
+                <div class="product-info">
+                    <h3>Exfoliating Body Scrub</h3>
+                    <p>Exfoliating scrub for smooth and radiant skin</p>
+                    <div class="product-price">₱549.00</div>
+                    <button class="btn-product"
+                           onclick="addToCart('3', 'Exfoliating Body Scrub', 549.00, '../images/products-mockup/body-scrub-design-1.png')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+<!-- Promotional Section -->
+<section class="promotional-section">
+    <div class="container">
+        <div class="promo-carousel-container">
+            <div class="promo-carousel">
+                <!-- Banner 1 - Body Scrub -->
+                <div class="promo-slide active">
+                    <div class="promo-banner-container">
+                        <picture>
+                            <img src="../images/promotion-banner/body-scrub-promo.jpg" 
+                                 alt="Body Scrub Special Offer" 
+                                 class="promo-banner-img" 
+                                 loading="lazy">
+                        </picture>
+                        <div class="promo-overlay">
+                            <a href="@Url.Action("PromoPage", "Shop")" class="promo-link" aria-label="View body scrub offer"></a>
+                        </div>
+                    </div>
+                </div>
+                
+               <!-- Banner 2 - Video Promotion -->
+                <div class="promo-slide">
+                    <div class="promo-banner-container">
+                        <div class="promo-video-container">
+                            <video class="promo-video" poster="../videos/promotion-ads/promotion-ads-1.jpg" muted>
+                                <source src="../videos/promotion-ads/promotion-ads-1.mp4" type="video/mp4">
+                                <source src="../videos/promotion-ads/promotion-ads-1.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <button class="video-play-button" aria-label="Play video"></button>
+                        </div>
+                        <div class="promo-overlay">
+                            <a href="@Url.Action("PromoPage", "Shop")" class="promo-link" aria-label="View video promotion"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner 3 - Glow All Day Bundle -->
+                <div class="promo-slide">
+                    <div class="promo-banner-container">
+                        <picture>
+                            <img src="../images/promotion-banner/serum-toner-bundle-promo.jpg" 
+                                 alt="Glow All Day Bundle - Save 55%" 
+                                 class="promo-banner-img" 
+                                 loading="lazy">
+                        </picture>
+                        <div class="promo-overlay">
+                            <a href="@Url.Action("PromoPage", "Shop")" class="promo-link" aria-label="View body scrub offer"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Indicators -->
+                    <div class="promo-indicators">
+                        <button class="indicator active" data-slide="0" aria-label="Banner 1"></button>
+                        <button class="indicator" data-slide="1" aria-label="Video Promotion"></button>
+                        <button class="indicator" data-slide="2" aria-label="Banner 3"></button>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-nav carousel-prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="carousel-nav carousel-next" aria-label="Next slide">&#10095;</button>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Top Seller Section -->
+<section class="top-seller-section">
+    <div class="decorative-curve"></div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Best Sellers</h2>
+            <p class="section-subtitle">Discover our most loved products chosen by beauty enthusiasts</p>
+        </div>
+        
+        <div class="top-seller-grid">
+            <div class="bestseller-card stagger-item">
+                <div class="bestseller-badge">
+                    <span class="badge-text">Best Seller</span>
+                </div>
+                <div class="bestseller-image">
+                    <picture>
+                        <img src="../images/products-mockup/matte-lipstick-design-1.png" alt="Matte Lipstick" class="bestseller-img" loading="lazy">
+                    </picture>
+                </div>
+                <div class="bestseller-info">
+                    <h3>Matte Lipstick</h3>
+                    <p>Revitalize your lips with our creamy matte formula</p>
+                    <div class="bestseller-price">
+                        <span class="original-price">₱349.00</span>
+                        <span class="sale-price">₱249.00</span>
+                    </div>
+                    <button class="btn-add-to-cart"
+                           onclick="addToCart('4', 'Matte Lipstick', 249.00, '../images/products-mockup/matte-lipstick-design-1.png')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bestseller-card stagger-item">
+                <div class="bestseller-badge">
+                    <span class="badge-text">Top Rated</span>
+                </div>
+                <div class="bestseller-image">
+                    <picture>
+                        <img src="../images/products-mockup/serum-design-1.png" alt="Serum" class="bestseller-img" loading="lazy">
+                    </picture>
+                </div>
+                <div class="bestseller-info">
+                    <h3>Hydrating Face Serum</h3>
+                    <p>Restore and repair while you sleep</p>
+                    <div class="bestseller-price">
+                        <span class="current-price">₱599.00</span>
+                    </div>
+                    <button class="btn-add-to-cart"
+                           onclick="addToCart('5', 'Hydrating Face Serum', 599.00, '../images/products-mockup/serum-design-1.png')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bestseller-card stagger-item">
+                <div class="bestseller-badge">
+                    <span class="badge-text">Popular</span>
+                </div>
+                <div class="bestseller-image">
+                    <picture>
+                       <img src="../images/products-mockup/toner-design-1.png" alt="Toner" class="bestseller-img" loading="lazy">
+                    </picture>
+                </div>
+                <div class="bestseller-info">
+                    <h3>Brightening Toner</h3>
+                    <p>Deep cleanse without stripping natural oils</p>
+                    <div class="bestseller-price">
+                        <span class="current-price">₱499.00</span>
+                    </div>
+                    <button class="btn-add-to-cart"
+                           onclick="addToCart('6', 'Brightening Toner', 499.00, '../images/products-mockup/toner-design-1.png')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="decorative-curve"></div>
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <span class="about-label">About Shessentials</span>
+                <h2 class="about-title">Empowering Your <span class="highlight">Natural Beauty</span></h2>
+                <p class="about-description">
+                    At Shessentials, we believe that true beauty comes from feeling confident in your own skin. 
+                    Since our founding, we've been dedicated to curating premium beauty products that enhance 
+                    your natural radiance while respecting your individual style.
+                </p>
+                <a href="@Url.Action("About", "Home")" class="about-cta">
+                    Learn More
+                </a>
+            </div>
+            <div class="about-visual">
+                <div class="about-values">
+                    <div class="value-item">
+                        <i class="bi bi-heart-fill value-icon"></i>
+                        <h3 class="value-title">Quality First</h3>
+                        <p class="value-description">We source only the finest ingredients and materials</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="bi bi-shield-check value-icon"></i>
+                        <h3 class="value-title">Trusted Brand</h3>
+                        <p class="value-description">Years of customer satisfaction and trust</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="bi bi-recycle value-icon"></i>
+                        <h3 class="value-title">Sustainable</h3>
+                        <p class="value-description">Committed to eco-friendly practices</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="bi bi-star-fill value-icon"></i>
+                        <h3 class="value-title">Excellence</h3>
+                        <p class="value-description">Dedicated to delivering exceptional results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-content">
+            <h2 class="newsletter-title">Stay in the Glow</h2>
+            <p class="newsletter-subtitle">
+                Get exclusive access to new arrivals, beauty tips, and special offers
+            </p>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="email" class="form-control newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-newsletter">Subscribe</button>
+                </div>
+            </form>
+            <p class="newsletter-privacy">
+                <small>We respect your privacy. Unsubscribe at any time.</small>
+            </p>
+        </div>
+    </div>
+</section>
+
+<script src="~/js/promotional-section/promotion-carousel.js" asp-append-version="true"></script>

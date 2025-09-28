@@ -1,0 +1,91 @@
+/* wwwroot/css/auth-modal.css */
+
+/* Enhanced Login/Register Modal - Shessentials Theme */
+#authModal .modal-content {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 8px 32px rgba(181,124,106,0.14);
+    background: #fff8f6;
+    overflow: hidden;
+}
+#authModal .modal-header {
+    border-bottom: 1px solid #e9cfc2;
+    padding: 2rem 2rem 1rem 2rem;
+    background: #fbeee6;
+}
+#authModal .modal-title {
+    font-weight: 700;
+    color: #A36A66;
+    font-size: 1.5rem;
+}
+#authModal .modal-body {
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
+    background: #fff8f6;
+}
+#authModal h3 {
+    font-weight: 700;
+    color: #A36A66;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+#authModal .form-label {
+    font-weight: 600;
+    color: #A36A66;
+    margin-bottom: 0.5rem;
+}
+#authModal .form-control {
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid #e9cfc2;
+    background: #fbeee6;
+    color: #A36A66;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+#authModal .form-control:focus {
+    box-shadow: 0 0 0 0.18rem rgba(181,124,106,0.18);
+    border-color: #A36A66;
+    background: #fff8f6;
+    color: #A36A66;
+}
+#authModal .btn {
+    padding: 0.9rem 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-top: 1.2rem;
+    background: #A36A66;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px rgba(181,124,106,0.08);
+    transition: background 0.2s, color 0.2s;
+}
+#authModal .btn:hover {
+    background: #FFA593;
+    color: #fff8f6;
+}
+#authModal p a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+#authModal p a:hover {
+    text-decoration: underline;
+    color: #A36A66;
+}
+#authModal .modal-footer {
+    background: #fbeee6;
+    border-top: 1px solid #e9cfc2;
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 16px 16px;
+}
+/* Error message styling */
+#authModal .form-error {
+    color: #e91e63;
+    background: #fee;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #fcc;
+    font-size: 0.98rem;
+}

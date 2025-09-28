@@ -1,0 +1,557 @@
+
+
+/* Cart Modal Styles - Shop Theme */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 400px;
+    max-width: 100vw;
+    height: 100vh;
+    background: #fff8f6;
+    box-shadow: -4px 0 24px rgba(181,124,106,0.12);
+    z-index: 9999;
+    transition: right 0.4s cubic-bezier(.77,0,.18,1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-modal.open {
+    right: 0;
+}
+
+.cart-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.cart-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem 1rem 2rem;
+    background: #fbeee6;
+    border-bottom: 1px solid #e9cfc2;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.cart-modal-title {
+    color: #A36A66;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.cart-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #A36A66;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.cart-modal-close:hover {
+    color: #e91e63;
+}
+
+/* Equal Vertical Spacing and Centering for Cart Body */
+.cart-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start from top */
+    gap: 1.5rem; /* Equal vertical spacing between cart items */
+}
+
+/* When cart is empty, center content vertically */
+.cart-modal-body:has(.empty-cart) {
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-item {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(181,124,106,0.08);
+    padding: 1.5rem;
+    position: relative;
+    min-height: 160px;
+    height: auto;
+    gap: 1.5rem;
+    margin: 0; /* Remove margin since we're using gap */
+}
+
+.cart-item-img {
+    width: 90px; /* Slightly larger for better balance */
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #fbeee6;
+    flex-shrink: 0;
+    align-self: center; /* Center vertically */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #fbeee6;
+}
+
+/* Left-aligned Info Section */
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    padding: 0.5rem 0;
+}
+
+.cart-item-name {
+    color: #A36A66;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+.cart-item-price {
+    color: #e91e63;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    margin: 0;
+}
+
+.quantity-display {
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid #A36A66;
+}
+
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #A36A66;
+    background: white;
+    color: #A36A66;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+    background: #FFA593;
+    color: white;
+}
+
+.quantity-display {
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+    color: #A36A66;
+    font-size: 1rem;
+}
+
+/* Centered Remove Button Container */
+.cart-item-remove-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 60px;
+}
+
+.cart-item-remove {
+    background: transparent;
+    color: #e91e63;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+}
+
+.cart-item-remove:hover {
+    transform: scale(1.1);
+}
+
+.cart-item-remove i {
+    font-size: 1.3rem;
+}
+
+/* Footer with equal spacing */
+.cart-modal-footer {
+    padding: 1.5rem 2rem;
+    background: #fbeee6;
+    border-top: 1px solid #e9cfc2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+.cart-modal-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #A36A66;
+    font-weight: 700;
+}
+
+.cart-total-price {
+    color: #e91e63;
+    font-weight: 700;
+}
+
+.cart-modal-checkout {
+    background: #A36A66;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cart-modal-checkout:hover {
+    background: #FFA593;
+}
+
+.cart-modal-shopping {
+    background: white;
+    color: #A36A66;
+    border: 1px solid #A36A66;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cart-modal-shopping:hover {
+    background: #FFA593;
+    color: white;
+}
+
+/* Empty cart state with perfect centering */
+.empty-cart {
+    text-align: center;
+    padding: 2rem;
+    color: #A36A66;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+}
+
+.empty-cart-icon {
+    font-size: 3rem;
+    color: #e9cfc2;
+    margin-bottom: 1rem;
+}
+
+.empty-cart-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Overlay for when cart is open */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+
+
+
+
+
+
+
+
+/* Coupon Display Styles - Button with Coupons */
+.cart-modal-discount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #A36A66;
+    font-weight: 700;
+    min-height: 50px;
+}
+
+.cart-modal-discount-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+}
+
+.cart-modal-discount-label {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.cart-modal-discount-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.cart-modal-discount-btn {
+    background: white;
+    color: #A36A66;
+    border: 1px solid #A36A66;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0.3rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    white-space: nowrap;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-modal-discount-btn:hover {
+    background: #FFA593;
+    color: white;
+}
+
+/* Coupon Container with External Remove Button */
+.coupon-item {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.claimed-coupon {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+    border: 2px dashed #fff;
+    min-width: 20px;
+    height: 20px;
+    justify-content: center;
+    position: relative;
+}
+
+.coupon-percentage {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Remove Button Outside Coupon */
+.coupon-remove {
+    background: #ff6b6b;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 0;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.coupon-remove:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}
+
+/* Multiple coupons container - Horizontal layout */
+.coupons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+.coupons-with-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* Hide elements when not needed */
+.cart-modal-discount-btn.hidden {
+    display: none;
+}
+
+.coupon-item.hidden {
+    display: none;
+}
+
+/* Animation for coupon appearance */
+@keyframes couponSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.coupon-item {
+    animation: couponSlideIn 0.3s ease-out;
+}
+
+/* Tooltip styles for coupons */
+.claimed-coupon {
+    position: relative;
+    cursor: pointer;
+}
+
+.claimed-coupon:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 5px;
+}
+
+.claimed-coupon:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: -5px;
+}
+
+/* Responsive design for coupons */
+@media (max-width: 480px) {
+    .cart-modal-discount-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .cart-modal-discount-right {
+        justify-content: flex-start;
+        width: 100%;
+    }
+    
+    .coupons-with-button {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .claimed-coupon {
+        min-width: 70px;
+        height: 45px;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .coupon-percentage {
+        font-size: 1.1rem;
+    }
+    
+    .coupons-container {
+        gap: 0.8rem;
+    }
+    
+    .coupon-remove {
+        width: 18px;
+        height: 18px;
+        font-size: 0.8rem;
+        top: -4px;
+        right: -4px;
+    }
+    
+    .cart-modal-discount-btn {
+        height: 45px;
+        width: 100%;
+        justify-content: center;
+    }
+}

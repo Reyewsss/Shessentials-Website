@@ -1,0 +1,155 @@
+@{
+    ViewData["Title"] = "Promo Page";
+}
+
+<link rel="stylesheet" href="~/css/shop-page/promo-page.css" asp-append-version="true" />
+
+<section class="promo-header">
+    <div class="container text-center">
+        <h1 class="promo-title">Exclusive Shop Promos</h1>
+        <p class="promo-subtitle">Claim your coupons and save on your favorite essentials!</p>
+    </div>
+</section>
+
+<section class="promo-list-section">
+    <div class="container">
+        <div class="promo-list promo-list-centered">
+            <!-- Promo Item 1 -->
+            <div class="promo-item promo-item-wide">
+                <div class="promo-item-left">
+                    <picture>
+                        <img src="~/images/promotion-banner/body-scrub-promo.jpg" alt="Body Scrub" class="promo-product-img" />
+                    </picture>
+                    <div class="promo-product-info">
+                        <span class="promo-store">Exfoliating Body Scrub</span>
+                        <h2 class="promo-product-title">Reveal your smoothest skin yet!</h2>
+                        <div class="promo-product-prices">
+                            <span class="promo-price">₱301.95</span>
+                            <span class="promo-old-price">₱549.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="promo-item-right">
+                    <div class="promo-coupon promo-coupon-wide">
+                        <span class="promo-coupon-value">45% Off!</span>
+                        <span class="promo-coupon-code">Code: <strong>AKOSITULBA</strong></span>
+                        <button class="promo-claim-btn" data-code="AKOSITULBA" data-product="Body Scrub">Claim</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Promo Item 2 -->
+            <div class="promo-item promo-item-wide">
+                <div class="promo-item-left">
+                    <picture>
+                        <img src="~/images/promotion-banner/serum-toner-bundle-promo.jpg" alt="Glow All Day Bundle" class="promo-product-img" />
+                    </picture>
+                    <div class="promo-product-info">
+                        <span class="promo-store">Glow All Day Bundle</span>
+                        <h2 class="promo-product-title">Shessentials' hero products together</h2>
+                        <div class="promo-product-prices">
+                            <span class="promo-price">₱494.55</span>
+                            <span class="promo-old-price">₱1099.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="promo-item-right">
+                    <div class="promo-coupon promo-coupon-wide">
+                        <span class="promo-coupon-value">₱55.00 Off!</span>
+                        <span class="promo-coupon-code">Code: <strong>CARLOSYULO</strong></span>
+                        <button class="promo-claim-btn" data-code="CARLOSYULO" data-product="Glow All Day Bundle">Claim</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Promo Item 3 -->
+            <div class="promo-item promo-item-wide">
+                <div class="promo-item-left">
+                    <picture>
+                        <img src="~/images/promotion-banner/lipstick-promo-banner.jpg" alt="Matte Lipstick" class="promo-product-img" />
+                    </picture>
+                    <div class="promo-product-info">
+                        <span class="promo-store">Matte Lipstick</span>
+                        <h2 class="promo-product-title">Keep your lips nourished and colorful with the Shessentials Lip Love Special.</h2>
+                        <div class="promo-product-prices">
+                            <span class="promo-price">₱279.20</span>
+                            <span class="promo-old-price">₱349.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="promo-item-right">
+                    <div class="promo-coupon promo-coupon-wide">
+                        <span class="promo-coupon-value">20% Off!</span>
+                        <span class="promo-coupon-code">Code: <strong>EMILOU20</strong></span>
+                        <button class="promo-claim-btn" data-code="EMILOU20" data-product="Matte Lipstick">Claim</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Promo Item 4 -->
+            <div class="promo-item promo-item-wide">
+                <div class="promo-item-left">
+                    <picture>
+                        <img src="~/images/promotion-banner/toner-promo-banner.jpg" alt="Brightening Facial Toner" class="promo-product-img" />
+                    </picture>
+                    <div class="promo-product-info">
+                        <span class="promo-store">Brightening Facial Toner</span>
+                        <h2 class="promo-product-title">Reveal your skin's natural glow with our Brightening Facial Toner.</h2>
+                        <div class="promo-product-prices">
+                            <span class="promo-price">₱349.30</span>
+                            <span class="promo-old-price">₱499.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="promo-item-right">
+                    <div class="promo-coupon promo-coupon-wide">
+                        <span class="promo-coupon-value">30% Off!</span>
+                        <span class="promo-coupon-code">Code: <strong>YES30</strong></span>
+                        <button class="promo-claim-btn" data-code="YES30" data-product="Brightening Facial Toner">Claim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How to Use Promos -->
+<section class="promo-instructions">
+    <div class="container">
+        <div class="instructions-content">
+            <h2 class="section-title">How to Use Your Promo Codes</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Claim Code</h3>
+                    <p>Click the claim button next to any promo code to copy it to your clipboard.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Shop Products</h3>
+                    <p>Browse our collection and add your favorite items to your shopping cart.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Apply at Checkout</h3>
+                    <p>Paste the promo code in the discount field during checkout to save money.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Enjoy Savings</h3>
+                    <p>Watch your total decrease and enjoy your beauty essentials for less!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Toast Notification -->
+<div id="promoToast" class="cart-notification">
+    <div class="notification-content">
+        <i class="bi bi-check-circle-fill notification-icon"></i>
+        <div class="notification-text">
+            <span class="notification-title">Promo Code Claimed!</span>
+            <span class="notification-product" id="promoToastMessage">Code copied to clipboard</span>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/promotional-section/promo-page.js" asp-append-version="true"></script>

@@ -1,0 +1,69 @@
+.cart-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    font-family: 'Poppins', sans-serif;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #4CAF50;
+}
+
+.cart-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.notification-icon {
+    color: #4CAF50;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.notification-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.notification-product {
+    font-size: 14px;
+    color: #666;
+}
+
+.notification-view-cart {
+    align-self: flex-end;
+    background-color: transparent;
+    color: #4CAF50;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.notification-view-cart:hover {
+    color: #3d8b40;
+    text-decoration: underline;
+}

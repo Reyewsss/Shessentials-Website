@@ -1,0 +1,253 @@
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<link rel="stylesheet" href="~/css/shop-page/checkout.css" asp-append-version="true" />
+
+<!-- Checkout Header -->
+<section class="shess-checkout-header">
+    <div class="container">
+        <div class="shess-checkout-header-content">
+            <h1 class="shess-checkout-title">Secure Checkout</h1>
+            <nav class="shess-checkout-breadcrumb-nav">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <span class="shess-checkout-breadcrumb-separator">/</span>
+                <a href="@Url.Action("Index", "Shop")">Shop</a>
+                <span class="shess-checkout-breadcrumb-separator">/</span>
+                <span class="shess-checkout-breadcrumb-current">Checkout</span>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Checkout Progress -->
+<section class="shess-checkout-progress">
+    <div class="container">
+        <div class="shess-progress-steps">
+            <div class="shess-progress-step active">
+                <div class="shess-step-circle">
+                    <i class="bi bi-bag-check"></i>
+                </div>
+                <span class="shess-step-label">Cart Review</span>
+            </div>
+            <div class="shess-progress-line active"></div>
+            <div class="shess-progress-step active">
+                <div class="shess-step-circle">
+                    <i class="bi bi-person"></i>
+                </div>
+                <span class="shess-step-label">Information</span>
+            </div>
+            <div class="shess-progress-line"></div>
+            <div class="shess-progress-step">
+                <div class="shess-step-circle">
+                    <i class="bi bi-person"></i>
+                </div>
+                <span class="shess-step-label">Payment</span>
+            </div>
+            <div class="shess-progress-line"></div>
+            <div class="shess-progress-step">
+                <div class="shess-step-circle">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+                <span class="shess-step-label">Complete</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Checkout Content -->
+<section class="shess-checkout-content">
+    <div class="container">
+        <div class="shess-checkout-layout">
+            <!-- Left Side - Forms -->
+            <div class="shess-checkout-forms">
+                <!-- Customer Information -->
+                <div class="shess-checkout-section">
+                    <h2 class="shess-section-title">
+                        <i class="bi bi-person-circle"></i>
+                        Customer Information
+                    </h2>
+                    <form class="shess-checkout-form">
+                        <div class="shess-form-row">
+                            <div class="shess-form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="shess-form-control" required>
+                            </div>
+                            <div class="shess-form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="shess-form-control" required>
+                            </div>
+                        </div>
+                        <div class="shess-form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="shess-form-control" required>
+                        </div>
+                        <div class="shess-form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="shess-form-control">
+                        </div>
+                        <div class="shess-checkbox-group">
+                            <label class="shess-checkbox-label">
+                                <input type="checkbox" name="newsletter">
+                                <span class="shess-checkmark"></span>
+                                Subscribe to our newsletter for exclusive offers and beauty tips
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="shess-checkout-section">
+                    <h2 class="shess-section-title">
+                        <i class="bi bi-geo-alt"></i>
+                        Shipping Address
+                    </h2>
+                    <form class="shess-checkout-form">
+                        <div class="shess-form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" name="address" class="shess-form-control" required>
+                        </div>
+                        <div class="shess-form-group">
+                            <label for="apartment">Apartment, Suite, etc.</label>
+                            <input type="text" id="apartment" name="apartment" class="shess-form-control">
+                        </div>
+                        <div class="shess-form-row">
+                            <div class="shess-form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" class="shess-form-control" required>
+                            </div>
+                            <div class="shess-form-group">
+                                <label for="state">State/Province *</label>
+                                <select id="state" name="state" class="shess-form-control" required>
+                                    <option value="">Select State</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="CA">California</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="NY">New York</option>
+                                    <option value="TX">Texas</option>
+                                </select>
+                            </div>
+                            <div class="shess-form-group">
+                                <label for="zipCode">ZIP Code *</label>
+                                <input type="text" id="zipCode" name="zipCode" class="shess-form-control" required>
+                            </div>
+                        </div>
+                        <div class="shess-form-group">
+                            <label for="country">Country *</label>
+                            <select id="country" name="country" class="shess-form-control" required>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Shipping Method Section -->
+                <div class="shess-checkout-section">
+                    <h2 class="shess-section-title">
+                        <i class="bi bi-truck"></i>
+                        Shipping Method
+                    </h2>
+                    <div class="shess-shipping-methods">
+                        <div class="shess-shipping-option">
+                            <label class="shess-radio-label">
+                                <input type="radio" name="shipping" value="standard" checked>
+                                <span class="shess-radio-custom"></span>
+                                <span>Standard Shipping (3-5 business days)</span>
+                            </label>
+                            <div class="shess-shipping-price"></div>
+                        </div>
+                        <div class="shess-shipping-option">
+                            <label class="shess-radio-label">
+                                <input type="radio" name="shipping" value="express">
+                                <span class="shess-radio-custom"></span>
+                                <span>Express Shipping (1-2 business days)</span>
+                            </label>
+                            <div class="shess-shipping-price"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Continue Button Section Removed -->
+            </div>
+
+            <!-- Right Side - Order Summary -->
+            <div class="shess-checkout-sidebar">
+                <div class="shess-order-summary">
+                    <h2 class="shess-summary-title">Order Summary</h2>
+                    
+                    <!-- Cart Items - Dynamic Content -->
+                    <div class="shess-checkout-cart-items" id="checkoutCartItems">
+                        <!-- Cart items will be dynamically loaded here -->
+                        <div class="shess-checkout-empty" id="emptyCartMessage" style="display: none;">
+                            <i class="bi bi-cart-x"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    </div>
+
+                    <!-- Promo Code -->
+                    <div class="shess-checkout-promo-section">
+                        <div class="shess-checkout-promo-input-group">
+                            <input type="text" id="promoCodeInput" class="shess-checkout-promo-input" placeholder="Enter promo code">
+                            <button type="button" class="shess-checkout-apply-promo-btn" onclick="applyPromoCode()">Apply</button>
+                        </div>
+                        <div class="shess-checkout-applied-promo" id="appliedPromo" style="display: none;">
+                            <span class="shess-checkout-promo-code">WELCOME25</span>
+                            <span class="shess-checkout-promo-discount">-25%</span>
+                            <button type="button" class="shess-checkout-remove-promo" onclick="removePromoCode()">×</button>
+                        </div>
+                    </div>
+
+        <!-- Order Totals -->
+        <div class="shess-order-totals">
+            <div class="shess-total-line">
+                <span class="shess-total-label">Subtotal:</span>
+                <span class="shess-total-amount" id="subtotal">₱0.00</span>
+            </div>
+            <div class="shess-total-line">
+                <span class="shess-total-label">Shipping:</span>
+                <span class="shess-total-amount" id="shippingCost">Free</span>
+            </div>
+            <div class="shess-total-line discount-line" id="discountLine" style="display: none;">
+                <span class="shess-total-label">Discount:</span>
+                <span class="shess-total-amount discount" id="discountAmount">-₱0.00</span>
+            </div>
+            <div class="shess-total-line tax-line">
+                <span class="shess-total-label">Tax:</span>
+                <span class="shess-total-amount" id="taxAmount">₱0.00</span>
+            </div>
+            <div class="shess-total-line grand-total">
+                <span class="shess-total-label">Total:</span>
+                <span class="shess-total-amount" id="grandTotal">₱0.00</span>
+            </div>
+        </div>
+
+        <!-- Security Info -->
+        <div class="shess-security-info">
+            <div class="shess-security-item">
+                <i class="bi bi-shield-check"></i>
+                <span>SSL Encrypted</span>
+            </div>
+            <div class="shess-security-item">
+                <i class="bi bi-truck"></i>
+                <span>Free Returns</span>
+            </div>
+            <div class="shess-security-item">
+                <i class="bi bi-chat-dots"></i>
+                <span>24/7 Support</span>
+            </div>
+        </div>
+
+        <!-- Place Order Button -->
+                <button type="button" class="shess-place-order-btn" onclick="placeOrder()">
+                    <i class="bi bi-lock"></i>
+                    Place Order Securely
+                </button>
+            </div>
+        </div>
+                </div>
+            </div>
+        </section>
+
+<script src="~/js/shop-page/checkout.js" asp-append-version="true"></script>
+

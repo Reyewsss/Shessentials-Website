@@ -1,0 +1,294 @@
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<!-- Shop Header Section -->
+<section class="shop-page-header">
+    <div class="container">
+        <div class="shop-header-content">
+            <h1 class="shop-page-title">Shop Essentials</h1>
+            <p class="shop-page-subtitle">Discover luxury beauty products crafted for the modern woman</p>
+            <nav class="shop-breadcrumb-nav">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <span class="shop-breadcrumb-separator">/</span>
+                <span class="shop-breadcrumb-current">Shop</span>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Shop Content -->
+<section class="shop-page-content">
+    <div class="container">
+        <div class="shop-page-layout">
+            <!-- Filters Sidebar -->
+            <aside class="shop-page-sidebar">
+                <div class="shop-filter-section">
+                    <h3 class="shop-filter-title">Categories</h3>
+                    <ul class="shop-filter-list">
+                        <li><a href="#" class="shop-filter-link" data-category="all">All Products</a></li>
+                        <li><a href="#" class="shop-filter-link" data-category="skincare">Skincare</a></li>
+                        <li><a href="#" class="shop-filter-link" data-category="makeup">Makeup</a></li>
+                        <li><a href="#" class="shop-filter-link" data-category="fragrance">Fragrance</a></li>
+                        <li><a href="#" class="shop-filter-link" data-category="accessories">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="shop-filter-section">
+                    <h3 class="shop-filter-title">Price Range</h3>
+                    <div class="shop-price-filter">
+                        <div class="shop-price-inputs">
+                            <input type="number" class="shop-price-input" placeholder="Min" min="0" max="500">
+                            <span class="shop-price-separator">-</span>
+                            <input type="number" class="shop-price-input" placeholder="Max" min="0" max="500">
+                        </div>
+                        <button class="shop-btn-filter">Apply</button>
+                    </div>
+                </div>
+                
+                <div class="shop-filter-section">
+                    <h3 class="shop-filter-title">Brand</h3>
+                    <ul class="shop-filter-list">
+                        <li><label class="shop-filter-checkbox"><input type="checkbox"> Shessentials Signature</label></li>
+                        <li><label class="shop-filter-checkbox"><input type="checkbox"> Luxury Collection</label></li>
+                        <li><label class="shop-filter-checkbox"><input type="checkbox"> Natural Elements</label></li>
+                        <li><label class="shop-filter-checkbox"><input type="checkbox"> Premium Line</label></li>
+                    </ul>
+                </div>
+            </aside>
+            
+            <!-- Products Area -->
+            <main class="shop-page-main">
+                <!-- Toolbar -->
+                <div class="shop-page-toolbar">
+                    <div class="shop-results-info">
+                        <span class="shop-results-count">Showing 12 of 24 products</span>
+                    </div>
+                    <div class="shop-page-controls">
+                        <select class="shop-sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                        <div class="shop-view-toggle">
+                            <button class="shop-view-btn grid-view" title="Grid View">
+                                <i class="bi bi-grid-3x3-gap"></i>
+                            </button>
+                            <button class="shop-view-btn list-view" title="List View">
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="shop-products-container">
+                    <div class="shop-product-item" data-category="skincare">
+                        <div class="shop-product-card">
+                            <div class="shop-product-badge">Best Seller</div>
+                            <div class="shop-product-image">
+                            <picture>
+                                <img src="/images/products-mockup/serum-design-1.png" alt="Serum">
+                                </picture>
+                                <div class="shop-product-overlay">
+                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-add-cart" onclick="addToCart('5', 'Hydrating Face Serum', 599.00, '/images/products-mockup/serum-design-1.png')">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="shop-product-info">
+                                <h3 class="shop-product-name">Hydrating Face Serum</h3>
+                                <p class="shop-product-description">Advanced anti-aging formula with vitamin C and peptides</p>
+                                <div class="shop-product-rating">
+                                    <div class="shop-rating-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <span class="shop-rating-count">(127 reviews)</span>
+                                </div>
+                                <div class="shop-product-price">
+                                    <span class="shop-current-price">₱599.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shop-product-item" data-category="skincare">
+                        <div class="shop-product-card">
+                            <div class="shop-product-image">
+                                <picture>
+                                <img src="/images/products-mockup/body-scrub-design-1.png" alt="Body Scrub">
+                                </picture>
+                                <div class="shop-product-overlay">
+                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-add-cart" onclick="addToCart('3', 'Exfoliating Body Scrub', 549.00, '/images/products-mockup/body-scrub-design-1.png')">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="shop-product-info">
+                                <h3 class="shop-product-name">Exfoliating Body Scrub</h3>
+                                <p class="shop-product-description">24-hour hydration with hyaluronic acid and botanicals</p>
+                                <div class="shop-product-rating">
+                                    <div class="shop-rating-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <span class="shop-rating-count">(89 reviews)</span>
+                                </div>
+                                <div class="shop-product-price">
+                                    <span class="shop-current-price">₱549.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shop-product-item" data-category="makeup">
+                        <div class="shop-product-card">
+                            <div class="shop-product-image">
+                               <picture>
+                                <img src="/images/products-mockup/concealer-design-1.png" alt="Concealer">
+                                </picture>
+                                <div class="shop-product-overlay">
+                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-add-cart" onclick="addToCart('1', 'Cream Concealer', 399.00, '/images/products-mockup/concealer-design-1.png')">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="shop-product-info">
+                                <h3 class="shop-product-name">Cream Concealer</h3>
+                                <p class="shop-product-description">Lightweight coverage with SPF 30 protection</p>
+                                <div class="shop-product-rating">
+                                    <div class="shop-rating-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <span class="shop-rating-count">(156 reviews)</span>
+                                </div>
+                                <div class="shop-product-price">
+                                    <span class="shop-current-price">₱399.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shop-product-item" data-category="skincare">
+                        <div class="shop-product-card">
+                            <div class="shop-product-image">
+                                <picture>
+                                <img src="/images/products-mockup/liquid-foundation-design-1.png" alt="Liquid Foundation">
+                                </picture>
+                                <div class="shop-product-overlay">
+                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-add-cart" onclick="addToCart('2', 'Liquid Foundation', 699.00, '/images/products-mockup/liquid-foundation-design-1.png')">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="shop-product-info">
+                                <h3 class="shop-product-name">Liquid Foundation</h3>
+                                <p class="shop-product-description">Advanced sun protection with anti-aging benefits</p>
+                                <div class="shop-product-rating">
+                                    <div class="shop-rating-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <span class="shop-rating-count">(73 reviews)</span>
+                                </div>
+                                <div class="shop-product-price">
+                                    <span class="shop-current-price">₱699.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shop-product-item" data-category="fragrance">
+                        <div class="shop-product-card">
+                            <div class="shop-product-badge new">New</div>
+                            <div class="shop-product-image">
+                                <picture>
+                                <img src="/images/products-mockup/matte-lipstick-design-1.png" alt="Matte Lipstick">
+                                </picture>
+                                <div class="shop-product-overlay">
+                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-add-cart" onclick="addToCart('4', 'Matte Lipstick', 349.00, '/images/products-mockup/matte-lipstick-design-1.png')">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="shop-product-info">
+                                <h3 class="shop-product-name">Matte Lipstick</h3>
+                                <p class="shop-product-description">Sophisticated floral fragrance with hints of vanilla</p>
+                                <div class="shop-product-rating">
+                                    <div class="shop-rating-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <span class="shop-rating-count">(45 reviews)</span>
+                                </div>
+                                <div class="shop-product-price">
+                                    <span class="shop-current-price">₱349.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shop-product-item" data-category="makeup">
+                        <div class="shop-product-card">
+                            <div class="shop-product-image">
+                                <picture>
+                                <img src="/images/products-mockup/toner-design-1.png" alt="Toner">
+                                </picture>
+                                <div class="shop-product-overlay">
+                                    <button class="shop-btn-quick-view">Quick View</button>
+                                    <button class="shop-btn-add-cart" onclick="addToCart('6', 'Brightening Facial Toner', 499.00, '/images/products-mockup/toner-design-1.png')">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="shop-product-info">
+                                <h3 class="shop-product-name">Brightening Facial Toner</h3>
+                                <p class="shop-product-description">12 versatile shades for day to night looks</p>
+                                <div class="shop-product-rating">
+                                    <div class="shop-rating-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <span class="shop-rating-count">(98 reviews)</span>
+                                </div>
+                                <div class="shop-product-price">
+                                    <span class="shop-current-price">₱499.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="shop-pagination-wrapper">
+                    <nav class="shop-pagination-nav">
+                        <button class="shop-pagination-btn prev">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <button class="shop-pagination-btn">1</button>
+                        <button class="shop-pagination-btn">2</button>
+                        <button class="shop-pagination-btn">3</button>
+                        <button class="shop-pagination-btn next">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
